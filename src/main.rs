@@ -79,7 +79,7 @@ impl VM {
 
     fn fetch_i8(&mut self) -> i32 {
         let byte = self.fetch_byte();
-        byte as i8 as i32 // ← ここで符号付き変換して i32 にする！
+        byte as i8 as i32
     }
 }
 
@@ -94,15 +94,6 @@ fn main() {
     let filename = &args[1];
     let source = fs::read_to_string(filename).expect("Failed to read program.asm");
     let program = assemble(&source);
-
-    // programハードコード
-    // let program: Vec<u8> = vec![
-    //     0x01, 0x00, 0x05, // MOV R0, 5
-    //     0x03, 0x00, // PRINT R0
-    //     0x02, 0x00, 0xFF, // ADD R0, -1 (255 = -1 as i8)
-    //     0x12, 0x00, 0x03, // JNZ R0, 3 （IPを命令位置に戻す）
-    //     0xFF, // HALT
-    // ];
 
     let mut vm = VM::new(program);
     vm.run();
