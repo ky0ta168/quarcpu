@@ -15,10 +15,10 @@ Quark + CPU → **QuarCPU**
 | `0x01` | MOV | `MOV Rn, imm` → Rnに即値を格納 |
 | `0x02` | ADD | `ADD Rn, imm` → Rnに即値を加算 |
 | `0x03` | PRINT | `PRINT Rn` → Rnの値を出力 |
-| `0xFF` | HALT | プログラム終了 |
 | `0x10` | JMP | `JMP addr` → 無条件ジャンプ（ip を addr にセット） |
 | `0x11` | JZ | `JZ reg, addr` → reg が 0 ならジャンプ |
 | `0x12` | JNZ | `JNZ reg, addr` → reg が 0 でなければジャンプ |
+| `0xFF` | HALT | プログラム終了 |
 
 ## Demo
 
